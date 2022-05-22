@@ -2,7 +2,7 @@
 //https://github.com/TrolLoL28/prog2-exercise3
 package weather;
 
-import weather.ui.UserInterface;
+import weather.ui.UserInterface;b
 
 public class MCP {
 

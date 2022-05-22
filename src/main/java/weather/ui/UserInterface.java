@@ -8,6 +8,7 @@ import java.util.Scanner;
 import tk.plogitech.darksky.forecast.GeoCoordinates;
 import tk.plogitech.darksky.forecast.model.Latitude;
 import tk.plogitech.darksky.forecast.model.Longitude;
+import weather.ctrl.MyExeption;
 import weather.ctrl.WeatherController;
 
 public class UserInterface
@@ -31,19 +32,31 @@ public class UserInterface
 	public void getWeatherForCity1(){
 
 		//TODO enter the coordinates
-		ctrl.process(berlin);
+		try {
+			ctrl.process(berlin);
+		} catch (MyExeption e) {
+			e.printStackTrace();
+		}
 
 	}
 
 	public void getWeatherForCity2(){
 		//TODO enter the coordinates
-		ctrl.process(wien);
+		try {
+			ctrl.process(wien);
+		} catch (MyExeption e) {
+			e.printStackTrace();
+		}
 
 	}
 
 	public void getWeatherForCity3(){
 		//TODO enter the coordinates
-		ctrl.process(rom);
+		try {
+			ctrl.process(rom);
+		} catch (MyExeption e) {
+			e.printStackTrace();
+		}
 
 	}
 
@@ -62,7 +75,11 @@ public class UserInterface
 
 		GeoCoordinates console = new GeoCoordinates(longitude_console, latitude_console);
 
-		ctrl.process(console);
+		try {
+			ctrl.process(console);
+		} catch (MyExeption e) {
+			e.printStackTrace();
+		}
 
 	}
 

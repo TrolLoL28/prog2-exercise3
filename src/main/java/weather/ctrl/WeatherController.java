@@ -15,10 +15,11 @@ import java.util.List;
 
 public class WeatherController {
 
-    private String apiKey = "ab5c55091bfde0864c41b337f1c66af5";
+    public static String apiKey = "ab5c55091bfde0864c41b337f1c66af5";
 
 
-    public void process(GeoCoordinates location) {
+
+    public void process(GeoCoordinates location) throws MyExeption {
         System.out.println("process "+location); //$NON-NLS-1$
         Forecast data = getData(location);
 
@@ -43,7 +44,7 @@ public class WeatherController {
     }
 
 
-    public Forecast getData(GeoCoordinates location) {
+    public Forecast getData(GeoCoordinates location) throws MyExeption {
         ForecastRequest request = new ForecastRequestBuilder()
                 .key(new APIKey(apiKey))
                 .location(location)
@@ -56,7 +57,7 @@ public class WeatherController {
             forecast = client.forecast(request);
         }
         catch (Exception e) {
-            System.out.println("getData error");
+            throw new MyExeption("getData error");
         }
         return forecast;
     }
